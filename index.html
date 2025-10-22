@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghép ca làm</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game">
+        <header class="topbar">
+            <h1>Ghép ca làm</h1>
+            <div class="controls">
+                <button id="btn-clear" class="btn">Xoá lịch</button>
+                <button id="btn-eval" class="btn primary">Đánh giá</button>
+                <button id="btn-help" class="btn">Hướng dẫn</button>
+                <button id="btn-sound" class="btn" data-on="true" aria-label="Âm thanh">🔊</button>
+            </div>
+        </header>
+
+        <section class="meters">
+            <div class="meter" data-name="balance">
+                <div class="label">Cân bằng làm – nghỉ</div>
+                <div class="bar"><div class="fill" id="bar-balance"></div></div>
+            </div>
+            <div class="meter" data-name="flow">
+                <div class="label">Nhịp vận hành</div>
+                <div class="bar"><div class="fill" id="bar-flow"></div></div>
+            </div>
+            <div class="meter highlight" data-name="surplus">
+                <div class="label">Thặng dư</div>
+                <div class="bar"><div class="fill" id="bar-surplus"></div></div>
+            </div>
+        </section>
+
+        <main class="board">
+            <aside class="legend">
+                <h2>Nhân sự</h2>
+                <ul id="worker-list" class="workers"></ul>
+                <div class="tips">
+                    <p><span class="chip work"></span> Làm • <span class="chip rest"></span> Nghỉ</p>
+                    <p>Giữ chuột để tô nhanh</p>
+                </div>
+            </aside>
+
+            <section class="schedule">
+                <div class="timehead" id="timehead"></div>
+                <div class="grid" id="grid" aria-label="Bảng lịch ca"></div>
+            </section>
+        </main>
+
+        <footer class="infobar">
+            <div id="status-text">Kéo hoặc nhấp để xếp ca: không >3 ô làm liên tiếp, xen kẽ nghỉ.</div>
+        </footer>
+
+        <dialog id="dialog-help">
+            <div class="dialog-content">
+                <h2>Hướng dẫn</h2>
+                <ul class="help-list">
+                    <li>Nhấp để đổi giữa <strong>Làm</strong> và <strong>Nghỉ</strong>.</li>
+                    <li>Kéo giữ chuột để tô nhanh cả dãy.</li>
+                    <li>Không xếp quá <strong>3 ca làm liên tiếp</strong> cho 1 người.</li>
+                    <li>Nên có <strong>ít nhất 1 ô nghỉ</strong> giữa các cụm làm dài.</li>
+                    <li>Bấm <strong>Đánh giá</strong> để xem thặng dư tích luỹ theo lịch.</li>
+                </ul>
+                <button id="btn-close-help" class="btn primary">Đã hiểu</button>
+            </div>
+        </dialog>
+
+        <dialog id="dialog-result">
+            <div class="dialog-content">
+                <h2 id="result-title"></h2>
+                <p id="result-desc"></p>
+                <button id="btn-close-result" class="btn primary">Đóng</button>
+            </div>
+        </dialog>
+    </div>
+
+    <script src="game.js"></script>
+    </body>
+    </html>
+
+
